@@ -20,7 +20,8 @@ DOTS & BOXES
 */
 
 // VARIABLES //
-var $board, gameOver, $tiedGame, boxA, boxB, boxC, boxD, box;
+var board=[];
+var gameOver, $tiedGame, boxA, boxB, boxC, boxD, box;
 var score1=0;
 var score2=0;
 var $score1 = $('div#score1');
@@ -46,7 +47,6 @@ var $squareB = $('td div#squareb');
 var $squareC = $('td div#squarec');
 var $squareD = $('td div#squared');
 
-var player = "#1FE5BB";
 
 // EVENT LISTENERS //
 $lineH.on('click', handleClick);
@@ -56,61 +56,90 @@ $lineV.on('click', handleClick);
 
 // FUNCTIONS //
 var initialize = function() {
-  player="#1FE5BB";
+  player="1";
   gameOver=false;
 }
 
+initialize();
+
 var switchPlayer = function(){
-    player = (player==="#1FE5BB") ? "#FF5733" : "#1FE5BB";
+    player = (player==="1") ? "2" : "1";
 }
 
 var detectBox = function(){
  if ($line1.data('clicked') && $line3.data('clicked') && $line4.data('clicked') && $line6.data('clicked') && !boxA){
-    $square.css({'background-color':player});
+    render($square);
     boxA=true;
     box=player;
     updateScore();
+    return;
   } else if ($line2.data('clicked') && $line4.data('clicked') && $line5.data('clicked') && $line7.data('clicked') && !boxB){
-    $squareB.css({'background-color':player});
+    render($squareB);
     boxB=true;
     box=player;
     updateScore();
+    return;
   } else if ($line6.data('clicked') && $line8.data('clicked') && $line9.data('clicked') && $line11.data('clicked') && !boxC){
-    $squareC.css({'background-color':player});
+    render($squareC);
     boxC=true;
     box=player;
     updateScore();
+    return;
   } else if ($line7.data('clicked') && $line9.data('clicked') && $line10.data('clicked') && $line12.data('clicked') && !boxD){
-    $squareD.css({'background-color':player});
+    render($squareD)
     boxD=true;
     box=player;
     updateScore();
-  } else {
     return;
+  } else {
+    gameOver=true;
+  }
+}
+
+function render(x) {
+  //board[x.id]=player //figure out how to reach certain string position
+  if(player==="1"){
+   x.css({'background-color':"#1FE5BB"});
+  } else {
+   x.css({'background-color':"#FF5733"});
   }
 }
 
  var updateScore = function(){
-  if (box==="#1FE5BB"){
+  if (box==="1"){
     score1++;
     $score1.html(score1.toString());
-  } else if (box==="#FF5733") {
+  } else if (box==="2") {
     score2++;
     $score2.html(score2.toString());
   }
 }
 
 function handleClick(evt) {
-  if(player==="#1FE5BB") {
-    $(this).css({'background-color':player}).data('clicked', true);
+  if(player==="1") {
+    $(this).css({'background-color':"#1FE5BB"}).data('clicked', true);
      detectBox();
      switchPlayer();
- } else if(player==="#FF5733"){
-    $(this).css({'background-color':player}).data('clicked', true);
+     // checkWinner();
+ } else if(player==="2"){
+    $(this).css({'background-color':"#FF5733"}).data('clicked', true);
      detectBox();
      switchPlayer();
+     // checkWinner();
   }
 }
+
+// function checkWinner() {
+//   if (!gameOver){
+//     return;
+//   } else if(gameOver && score1 > score2){
+//       $message.html('Player One wins!');
+//   } else if(gameOver && score2 > score1){
+//       $message.html('Player Two wins!');
+//   } else {
+//       $message.html("It's a tie!");
+//     }
+//   }
 
 
 
