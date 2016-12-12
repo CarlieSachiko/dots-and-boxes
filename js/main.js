@@ -21,7 +21,7 @@ DOTS & BOXES
 
 // VARIABLES //
 var board=[];
-var gameOver, $tiedGame, boxA, boxB, boxC, boxD, box;
+var gameOver, $tiedGame, boxA, boxB, boxC, boxD, box, boxMade;
 var score1=0;
 var score2=0;
 var $score1 = $('div#score1');
@@ -58,12 +58,18 @@ $lineV.on('click', handleClick);
 var initialize = function() {
   player="1";
   gameOver=false;
+  boxMade = false;
 }
 
 initialize();
 
 var switchPlayer = function(){
+  if (!boxMade){
     player = (player==="1") ? "2" : "1";
+  } else {
+    player = player;
+    boxMade = false;
+  }
 }
 
 var detectBox = function(){
@@ -72,24 +78,28 @@ var detectBox = function(){
     boxA=true;
     box=player;
     updateScore();
+    boxMade = true;
     return;
   } else if ($line2.data('clicked') && $line4.data('clicked') && $line5.data('clicked') && $line7.data('clicked') && !boxB){
     render($squareB);
     boxB=true;
     box=player;
     updateScore();
+    boxMade = true;
     return;
   } else if ($line6.data('clicked') && $line8.data('clicked') && $line9.data('clicked') && $line11.data('clicked') && !boxC){
     render($squareC);
     boxC=true;
     box=player;
     updateScore();
+    boxMade = true;
     return;
   } else if ($line7.data('clicked') && $line9.data('clicked') && $line10.data('clicked') && $line12.data('clicked') && !boxD){
     render($squareD)
     boxD=true;
     box=player;
     updateScore();
+    boxMade = true;
     return;
   } else {
     gameOver=true;
