@@ -1,0 +1,99 @@
+* {
+  box-sizing: border-box;
+}
+
+body{
+  /*border: solid 2px red;*/
+}
+
+header {
+  margin: auto;
+  text-align: center;
+  position: relative;
+}
+
+#dots {
+  font-family:'Codystar', cursive;
+  font-size: 160px;
+  letter-spacing: 10px;
+  /*border: solid 2px red;*/
+  display: inline-block;
+  text-align: center;
+}
+
+#boxes{
+  font-family: 'Bungee Hairline', cursive;
+  font-size: 160px;
+  padding: 0;
+  margin-top: 0;
+  /*border: solid 2px red;*/
+  display: inline-block;
+  text-align: center;
+}
+
+#and {
+  font-family: 'Questrial', cursive;
+  font-size: 30px;
+  letter-spacing: 40px;
+  /*border: solid 2px red;*/
+  /*display: inline-block;*/
+  text-align: center;
+}
+
+main{
+  margin: auto;
+  width: 20em;
+  border: solid 2px black;
+  /*border-radius: 50%;*/
+  text-align: center;
+  overflow: auto;
+}
+
+#play{
+  font-family: 'Questrial', cursive;
+  font-size: 20px;
+  letter-spacing: 10px;
+  text-align: center;
+  margin: 40px 20px 20px 20px;
+}
+
+#instruct {
+  font-family: 'Questrial', cursive;
+  font-size: 20px;
+  letter-spacing: 10px;
+  text-align: center;
+  margin: 40px 20px 40px 20px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: #7300F6;
+}
+
+.sliding-u-l-r {
+    text-decoration: none;
+    display: inline-block;
+    border-bottom: 3px solid black;
+    width: 0px;
+    transition: 0.5s ease;
+    white-space: nowrap;
+    height: 25px;
+}
+
+/*.sliding-u-l-r:hover {
+    border-bottom: 3px solid blue;
+    width: 200px;
+}
+*/
+
+
+
+@media screen and (max-width: 550px){
+  header{
+
+  }
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dots and Boxes Game</title>
+  <link href="https://fonts.googleapis.com/css?family=Bungee+Hairline|Codystar|Geostar+Fill|Megrim|Monofett|Questrial" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+</head>
+<body>
+  <div id="dots">DOTS</div>
+  <div id="and">AND</div>
+  <div id="boxes">BOXES</div>
+
+  <main>
+    <div id="player1">
+      <div>PLAYER ONE</div>
+      <div id="score1">0</div>
+    </div>
+
+    <div id="board">
+    <table>
+      <tr>
+        <td>•</td>
+        <td><div id="line1" class="lineH"></div></td>
+        <td>•</td>
+        <td><div id="line2" class="lineH"></div></td>
+        <td>•</td>
+        <!-- <td><div id="1" class="lineH"></div></td>
+        <td>•</td>
+        <td><div id="1" class="lineH"></div></td>
+        <td>•</td>
+        <td><div id="1" class="lineH"></div></td>
+        <td>•</td> -->
+      </tr>
+      <tr>
+        <td><div id="line3" class="lineV"></div></td>
+        <td><div id="square" class="square"></div></td>
+        <td><div id="line4" class="lineV"></div></td>
+        <td><div id="squareb" class="square"></div></td>
+        <td><div id="line5" class="lineV"></div></td>
+        <!-- <td></td>
+        <td><div id="" class="lineV"></div></td>
+        <td></td>
+        <td><div id="" class="lineV"></div></td>
+        <td></td>
+        <td><div id="" class="lineV"></div></td> -->
+      </tr>
+      <tr>
+        <td>•</td>
+        <td><div id="line6" class="lineH"></div></td>
+        <td>•</td>
+        <td><div id="line7" class="lineH"></div></td>
+        <td>•</td>
+        <!-- <td><div id="1" class="lineH"></div></td>
+        <td>•</td>
+        <td><div id="1" class="lineH"></div></td>
+        <td>•</td>
+        <td><div id="1" class="lineH"></div></td>
+        <td>•</td> -->
+      </tr>
+      <tr>
+        <td><div id="line8" class="lineV"></div></td>
+        <td><div id="squarec" class="square"></div></td>
+        <td><div id="line9" class="lineV"></div></td>
+        <td><div id="squared" class="square"></div></td>
+        <td><div id="line10" class="lineV"></div></td>
+        <!-- <td></td>
+        <td><div id="" class="lineV"></div></td>
+        <td></td>
+        <td><div id="" class="lineV"></div></td>
+        <td></td>
+        <td><div id="" class="lineV"></div></td> -->
+      </tr>
+      <tr>
+        <td>•</td>
+        <td><div id="line11" class="lineH"></div></td>
+        <td>•</td>
+        <td><div id="line12" class="lineH"></div></td>
+        <td>•</td>
+<!--         <td><div id="1" class="lineH"></div></td>
+        <td>•</td>
+        <td><div id="1" class="lineH"></div></td>
+        <td>•</td>
+        <td><div id="1" class="lineH"></div></td>
+        <td>•</td>
+ -->      </tr>
+   <!--    <tr>
+        <td><div id="" class="lineV"></div></td>
+        <td></td>
+        <td><div id="" class="lineV"></div></td>
+        <td></td>
+        <td><div id="" class="lineV"></div></td>
+        <td></td>
+        <td><div id="" class="lineV"></div></td>
+        <td></td>
+        <td><div id="" class="lineV"></div></td>
+        <td></td>
+        <td><div id="" class="lineV"></div></td>
+      </tr>
+      <tr>
+        <td>•</td>
+        <td><div id="1" class="lineH"></div></td>
+        <td>•</td>
+        <td><div id="1" class="lineH"></div></td>
+        <td>•</td>
+        <td><div id="1" class="lineH"></div></td>
+        <td>•</td>
+        <td><div id="1" class="lineH"></div></td>
+        <td>•</td>
+        <td><div id="1" class="lineH"></div></td>
+        <td>•</td>
+      </tr> -->
+
+    </table>
+    </div>
+
+    <div id="player2">
+      <div>PLAYER TWO</div>
+      <div id="score2">0</div>
+    </div>
+    <div id="message"></div>
+    <div id="playAgain"></div>
+  </main>
+  <script src="js/main.js"></script>
+</body>
+</html>

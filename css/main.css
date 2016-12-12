@@ -1,0 +1,121 @@
+* {
+  box-sizing: border-box;
+}
+
+#dots {
+  font-family:'Codystar', cursive;
+  font-size: 80px;
+  text-align: center;
+  letter-spacing: 10px;
+}
+
+#boxes{
+  font-family: 'Bungee Hairline', cursive;
+  font-size: 100px;
+  padding: 0;
+  text-align: center;
+}
+
+#and {
+  font-family: 'Questrial', cursive;
+  font-size: 20px;
+  letter-spacing: 40px;
+  text-align: center;
+}
+
+table {
+  margin: auto;
+}
+
+td {
+  padding: 0;
+  text-align: center;
+  /*border: 2px solid red;*/
+}
+
+#square {
+  width: 40px;
+  height:40px;
+  padding: 0;
+  background-color: transparent;
+}
+
+main{
+  margin: auto;
+  border: 2px solid yellow;
+  width: 908px;
+}
+
+#board {
+  margin-left: auto;
+  margin-right: auto;
+  width: 480px;
+  border: 2px solid purple;
+  display: inline-block;
+  overflow: auto;
+}
+
+#player1 {
+  border: 2px solid blue;
+  display: inline-block;
+  font-family: 'Questrial', cursive;
+  letter-spacing: 8px;
+  float: left;
+  text-align: center;
+  margin: 10px;
+}
+
+#score1 {
+  padding: 10px;
+}
+
+#score2 {
+  padding: 10px;
+}
+
+#player2 {
+  border: 2px solid blue;
+  display: inline-block;
+  font-family: 'Questrial', cursive;
+  letter-spacing: 8px;
+  float: right;
+  text-align: center;
+  margin: 10px;
+}
+
+div .lineH {
+  width: 40px;
+  height:3px;
+  background-color: transparent;
+  padding: 0;
+  margin: auto;
+  /*border: 2px solid orange;*/
+}
+
+div .lineH:hover{
+  background-color: black;
+}
+
+div .lineV:hover{
+  background-color: black;
+}
+
+div .lineV {
+  width: 3px;
+  height:40px;
+  background-color: transparent;
+  padding: 0;
+  margin: auto;
+  /*border: 2px solid orange;*/
+}
+
+div #square {
+  background-color: none;
+}
+
+/*@media screen and (min-width: 520px;){
+  #board {
+    width: ;
+  }
+}
+*/
