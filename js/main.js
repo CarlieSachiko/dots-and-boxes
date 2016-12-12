@@ -20,7 +20,7 @@ DOTS & BOXES
 */
 
 // VARIABLES //
-var board=[];
+var board=['','','',''];
 var gameOver, $tiedGame, boxA, boxB, boxC, boxD, box, boxMade;
 var score1=0;
 var score2=0;
@@ -28,20 +28,21 @@ var $score1 = $('div#score1');
 var $score2 = $('div#score2');
 var $message = $('#message');
 var $playAgain = $('#playAgain');
+var $turnMessage = $('#turnMessage');
 var $lineH = $('td div.lineH');
 var $lineV = $('td div.lineV');
-var $line1 = $('td div#line1');
-var $line2 = $('td div#line2');
-var $line3 = $('td div#line3');
-var $line4 = $('td div#line4');
-var $line5 = $('td div#line5');
-var $line6 = $('td div#line6');
-var $line7 = $('td div#line7');
-var $line8 = $('td div#line8');
-var $line9 = $('td div#line9');
-var $line10 = $('td div#line10');
-var $line11 = $('td div#line11');
-var $line12 = $('td div#line12');
+var $lineH1 = $('td div#lineH1');
+var $lineH2 = $('td div#lineH2');
+var $lineH3 = $('td div#lineH3');
+var $lineH4 = $('td div#lineH4');
+var $lineH5 = $('td div#lineH5');
+var $lineH6 = $('td div#lineH6');
+var $lineV1 = $('td div#lineV1');
+var $lineV2 = $('td div#lineV2');
+var $lineV3 = $('td div#lineV3');
+var $lineV4 = $('td div#lineV4');
+var $lineV5 = $('td div#lineV5');
+var $lineV6 = $('td div#lineV6');
 var $square = $('td div#square');
 var $squareB = $('td div#squareb');
 var $squareC = $('td div#squarec');
@@ -59,9 +60,18 @@ var initialize = function() {
   player="1";
   gameOver=false;
   boxMade = false;
+  updateTurnMessage();
 }
 
 initialize();
+
+function updateTurnMessage(){
+  if(player==="1"){
+    $turnMessage.html(`It's Player One's turn`);
+  } else {
+    $turnMessage.html(`It's Player Two's turn`);
+  }
+}
 
 var switchPlayer = function(){
   if (!boxMade){
@@ -73,34 +83,34 @@ var switchPlayer = function(){
 }
 
 var detectBox = function(){
- if ($line1.data('clicked') && $line3.data('clicked') && $line4.data('clicked') && $line6.data('clicked') && !boxA){
+ if ($lineH1.data('clicked') && $lineV1.data('clicked') && $lineH3.data('clicked') && $lineV2.data('clicked') && !boxA){
     render($square);
     boxA=true;
     box=player;
     updateScore();
     boxMade = true;
-    return;
-  } else if ($line2.data('clicked') && $line4.data('clicked') && $line5.data('clicked') && $line7.data('clicked') && !boxB){
+
+  } else if ($lineH2.data('clicked') && $lineV2.data('clicked') && $lineH4.data('clicked') && $lineV3.data('clicked') && !boxB){
     render($squareB);
     boxB=true;
     box=player;
     updateScore();
     boxMade = true;
-    return;
-  } else if ($line6.data('clicked') && $line8.data('clicked') && $line9.data('clicked') && $line11.data('clicked') && !boxC){
+
+  } else if ($lineH3.data('clicked') && $lineV4.data('clicked') && $lineH5.data('clicked') && $lineV5.data('clicked') && !boxC){
     render($squareC);
     boxC=true;
     box=player;
     updateScore();
     boxMade = true;
-    return;
-  } else if ($line7.data('clicked') && $line9.data('clicked') && $line10.data('clicked') && $line12.data('clicked') && !boxD){
+
+  } else if ($lineH4.data('clicked') && $lineV5.data('clicked') && $lineH6.data('clicked') && $lineV6.data('clicked') && !boxD){
     render($squareD)
     boxD=true;
     box=player;
     updateScore();
     boxMade = true;
-    return;
+
   } else {
     gameOver=true;
   }
@@ -130,17 +140,19 @@ function handleClick(evt) {
     $(this).css({'background-color':"#1FE5BB"}).data('clicked', true);
      detectBox();
      switchPlayer();
+     updateTurnMessage();
      // checkWinner();
  } else if(player==="2"){
     $(this).css({'background-color':"#FF5733"}).data('clicked', true);
      detectBox();
      switchPlayer();
+     updateTurnMessage();
      // checkWinner();
   }
 }
 
 // function checkWinner() {
-//   if (!gameOver){
+//   if (board.length!==4){
 //     return;
 //   } else if(gameOver && score1 > score2){
 //       $message.html('Player One wins!');
