@@ -43,10 +43,10 @@ var $lineV3 = $('td div#lineV3');
 var $lineV4 = $('td div#lineV4');
 var $lineV5 = $('td div#lineV5');
 var $lineV6 = $('td div#lineV6');
-var $square = $('td div#square');
-var $squareB = $('td div#squareb');
-var $squareC = $('td div#squarec');
-var $squareD = $('td div#squared');
+var $square1 = $('td div#square1');
+var $square2 = $('td div#square2');
+var $square3 = $('td div#square3');
+var $square4 = $('td div#square4');
 
 
 // EVENT LISTENERS //
@@ -84,28 +84,28 @@ var switchPlayer = function(){
 
 var detectBox = function(){
  if ($lineH1.data('clicked') && $lineV1.data('clicked') && $lineH3.data('clicked') && $lineV2.data('clicked') && !boxA){
-    render($square);
+    render($square1);
     boxA=true;
     box=player;
     updateScore();
     boxMade = true;
 
   } else if ($lineH2.data('clicked') && $lineV2.data('clicked') && $lineH4.data('clicked') && $lineV3.data('clicked') && !boxB){
-    render($squareB);
+    render($square2);
     boxB=true;
     box=player;
     updateScore();
     boxMade = true;
 
   } else if ($lineH3.data('clicked') && $lineV4.data('clicked') && $lineH5.data('clicked') && $lineV5.data('clicked') && !boxC){
-    render($squareC);
+    render($square3);
     boxC=true;
     box=player;
     updateScore();
     boxMade = true;
 
   } else if ($lineH4.data('clicked') && $lineV5.data('clicked') && $lineH6.data('clicked') && $lineV6.data('clicked') && !boxD){
-    render($squareD)
+    render($square4)
     boxD=true;
     box=player;
     updateScore();
@@ -117,12 +117,24 @@ var detectBox = function(){
 }
 
 function render(x) {
-  //board[x.id]=player //figure out how to reach certain string position
-  if(player==="1"){
-   x.css({'background-color':"#1FE5BB"});
-  } else {
-   x.css({'background-color':"#FF5733"});
-  }
+  board[x.attr("id").substr(6,1)-1]=player; //figure out how to reach certain string position
+  console.log(board);
+  board.forEach(function(idx){
+    if(board[idx]==="1"){
+      alert("box1")
+      x.css({'background-color':"#1FE5BB"});
+    } else if(board[idx]==="2"){
+      alert("box2")
+      x.css({'background-color':"#FF5733"});
+    } else return;
+
+  });
+  // if(player==="1"){
+  //  x.css({'background-color':"#1FE5BB"});
+  // } else {
+  //  x.css({'background-color':"#FF5733"});
+  // }
+  //   }
 }
 
  var updateScore = function(){
