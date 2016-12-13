@@ -2,16 +2,25 @@
   box-sizing: border-box;
 }
 
+header {
+  margin: auto;
+  text-align: center;
+  position: relative;
+  /*border: black solid 2px;*/
+  width: 450px;
+}
+
 #dots {
   font-family:'Codystar', cursive;
-  font-size: 80px;
+  font-size: 65px;
   text-align: center;
   letter-spacing: 10px;
+  display: inline-block;
 }
 
 #boxes{
   font-family: 'Bungee Hairline', cursive;
-  font-size: 100px;
+  font-size: 90px;
   padding: 0;
   text-align: center;
 }
@@ -21,14 +30,19 @@
   font-size: 20px;
   letter-spacing: 40px;
   text-align: center;
+  display: inline-block;
 }
 
-#turnMessage {
+#turnMessage, #playAgain, #message{
   font-family: 'Questrial', cursive;
   font-size: 12px;
   letter-spacing: 5px;
   text-align: center;
-  padding: 10px;
+  padding: 15px;
+}
+
+#playAgain:hover {
+  color: purple;
 }
 
 table {
@@ -41,7 +55,8 @@ td {
   /*border: 2px solid red;*/
 }
 
-#square {
+div.box {
+  border: black solid 1px;
   width: 40px;
   height:40px;
   padding: 0;
@@ -71,6 +86,7 @@ main{
   float: left;
   text-align: center;
   margin: 10px;
+  color: #1FE5BB;
 }
 
 #score1 {
@@ -89,9 +105,10 @@ main{
   float: right;
   text-align: center;
   margin: 10px;
+  color: #FF5733;
 }
 
-div .lineH {
+div .H {
   width: 40px;
   height:3px;
   background-color: transparent;
@@ -100,15 +117,15 @@ div .lineH {
   /*border: 2px solid orange;*/
 }
 
-div .lineH:hover{
+div.line:hover{
   background-color: black;
 }
 
-div .lineV:hover{
+div.line:hover{
   background-color: black;
 }
 
-div .lineV {
+div .V {
   width: 3px;
   height:40px;
   background-color: transparent;

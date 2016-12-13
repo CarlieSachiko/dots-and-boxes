@@ -10,12 +10,15 @@ header {
   margin: auto;
   text-align: center;
   position: relative;
+  /*border: black solid 2px;*/
+  width: 600px;
+  padding-top: 70px;
 }
 
 #dots {
   font-family:'Codystar', cursive;
-  font-size: 160px;
-  letter-spacing: 10px;
+  font-size: 110px;
+  letter-spacing: 15px;
   /*border: solid 2px red;*/
   display: inline-block;
   text-align: center;
@@ -36,7 +39,7 @@ header {
   font-size: 30px;
   letter-spacing: 40px;
   /*border: solid 2px red;*/
-  /*display: inline-block;*/
+  display: inline-block;
   text-align: center;
 }
 

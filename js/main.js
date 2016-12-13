@@ -20,160 +20,177 @@ DOTS & BOXES
 */
 
 // VARIABLES //
-var board=['','','',''];
-var gameOver, $tiedGame, boxA, boxB, boxC, boxD, box, boxMade;
-var score1=0;
-var score2=0;
+var board, hArray, vArray, score1, score2, boxMade;
+var $box = $('div#i.box');
 var $score1 = $('div#score1');
 var $score2 = $('div#score2');
 var $message = $('#message');
 var $playAgain = $('#playAgain');
 var $turnMessage = $('#turnMessage');
-var $lineH = $('td div.lineH');
-var $lineV = $('td div.lineV');
-var $lineH1 = $('td div#lineH1');
-var $lineH2 = $('td div#lineH2');
-var $lineH3 = $('td div#lineH3');
-var $lineH4 = $('td div#lineH4');
-var $lineH5 = $('td div#lineH5');
-var $lineH6 = $('td div#lineH6');
-var $lineV1 = $('td div#lineV1');
-var $lineV2 = $('td div#lineV2');
-var $lineV3 = $('td div#lineV3');
-var $lineV4 = $('td div#lineV4');
-var $lineV5 = $('td div#lineV5');
-var $lineV6 = $('td div#lineV6');
-var $square1 = $('td div#square1');
-var $square2 = $('td div#square2');
-var $square3 = $('td div#square3');
-var $square4 = $('td div#square4');
+var $lineH = $('td div.H');
+var $lineV = $('td div.V');
+var p1Color="#1FE5BB";
+var p2Color="#FF5733";
 
 
 // EVENT LISTENERS //
-$lineH.on('click', handleClick);
-
-$lineV.on('click', handleClick);
+$lineH.on('click', handleClickH);
+$lineV.on('click', handleClickV);
+$playAgain.on('click', initialize);
 
 
 // FUNCTIONS //
-var initialize = function() {
-  player="1";
-  gameOver=false;
+function initialize() {
+  player=1;
   boxMade = false;
   updateTurnMessage();
+  board=[0,0,0,0];
+  hArray=[false,false,false,false,false,false,false,false,false,false,false,false];
+  vArray=[false,false,false,false,false,false,false,false,false,false,false,false];
+  score1=[];
+  score2=[];
+  updateScore();
+  render();
+  checkWinner();
 }
 
 initialize();
 
 function updateTurnMessage(){
-  if(player==="1"){
+  if(player===1){
     $turnMessage.html(`It's Player One's turn`);
   } else {
     $turnMessage.html(`It's Player Two's turn`);
   }
 }
 
-var switchPlayer = function(){
+function switchPlayer(){
   if (!boxMade){
-    player = (player==="1") ? "2" : "1";
+    player = (player===1) ? 2 : 1;
   } else {
     player = player;
     boxMade = false;
   }
+  updateTurnMessage();
 }
 
-var detectBox = function(){
- if ($lineH1.data('clicked') && $lineV1.data('clicked') && $lineH3.data('clicked') && $lineV2.data('clicked') && !boxA){
-    render($square1);
-    boxA=true;
-    box=player;
-    updateScore();
-    boxMade = true;
-
-  } else if ($lineH2.data('clicked') && $lineV2.data('clicked') && $lineH4.data('clicked') && $lineV3.data('clicked') && !boxB){
-    render($square2);
-    boxB=true;
-    box=player;
-    updateScore();
-    boxMade = true;
-
-  } else if ($lineH3.data('clicked') && $lineV4.data('clicked') && $lineH5.data('clicked') && $lineV5.data('clicked') && !boxC){
-    render($square3);
-    boxC=true;
-    box=player;
-    updateScore();
-    boxMade = true;
-
-  } else if ($lineH4.data('clicked') && $lineV5.data('clicked') && $lineH6.data('clicked') && $lineV6.data('clicked') && !boxD){
-    render($square4)
-    boxD=true;
-    box=player;
-    updateScore();
-    boxMade = true;
-
-  } else {
-    gameOver=true;
-  }
-}
-
-function render(x) {
-  board[x.attr("id").substr(6,1)-1]=player; //figure out how to reach certain string position
+function boxIsMade(i){
   console.log(board);
-  board.forEach(function(idx){
-    if(board[idx]==="1"){
-      alert("box1")
-      x.css({'background-color':"#1FE5BB"});
-    } else if(board[idx]==="2"){
-      alert("box2")
-      x.css({'background-color':"#FF5733"});
-    } else return;
+  board[i]=player;
+  render();
+  updateScore();
+  boxMade=true;
+}
 
-  });
-  // if(player==="1"){
-  //  x.css({'background-color':"#1FE5BB"});
-  // } else {
-  //  x.css({'background-color':"#FF5733"});
-  // }
+function detectBox(){
+  for (var i=0; i<10; i++){
+    if (i<3){
+      if(hArray[i] && vArray[i] && hArray[i+3]&& vArray[i+1]){
+        boxIsMade(i);
+        boxMade=true;
+      }
+    } else if (i<6 && i>2){
+      if(hArray[i] && vArray[i+1] && hArray[i+3]&& vArray[i+2]){
+        boxIsMade(i);
+        boxMade=true;
+      }
+    } else if (i<9 && i>5){
+      if(hArray[i] && vArray[i+2] && hArray[i+3]&& vArray[i+3]){
+        boxIsMade(i);
+        boxMade=true;
+      }
+    } else boxMade=false;
+  //   if(gridH[0] && gridV[0] && gridH[2] && gridV[1] && !board[0]){
+  //     render(0);
+  //     board[i]=player;
+  //     updateScore();
+  //     boxMade = true;
+  //   } else if(gridH[1] && gridV[1] && gridH[3] && gridV[2] && !board[1]){
+  //     render(1);
+  //     updateScore();
+  //     boxMade = true;
+  //   } else if(gridH[2] && gridV[3] && gridH[4] && gridV[4] && !board[2]){
+  //     render(2);
+  //     updateScore();
+  //     boxMade = true;
+  //   } else if(gridH[3] && gridV[4] && gridH[5] && gridV[5] && !board[3]){
+  //     render(3);
+  //     updateScore();
+  //     boxMade = true;
   //   }
-}
+  // }
 
- var updateScore = function(){
-  if (box==="1"){
-    score1++;
-    $score1.html(score1.toString());
-  } else if (box==="2") {
-    score2++;
-    $score2.html(score2.toString());
   }
 }
 
-function handleClick(evt) {
-  if(player==="1") {
-    $(this).css({'background-color':"#1FE5BB"}).data('clicked', true);
-     detectBox();
-     switchPlayer();
-     updateTurnMessage();
-     // checkWinner();
- } else if(player==="2"){
-    $(this).css({'background-color':"#FF5733"}).data('clicked', true);
-     detectBox();
-     switchPlayer();
-     updateTurnMessage();
-     // checkWinner();
-  }
+function render() {
+  board.forEach(function(box,idx){
+    var $bx = $('#' + idx);
+    if(board[idx]===1){
+      $($bx).css('background-color', p1Color);
+    } else if(board[idx]===2){
+      $($bx).css('background-color', p2Color);
+    } else return;
+  });
 }
 
-// function checkWinner() {
-//   if (board.length!==4){
-//     return;
-//   } else if(gameOver && score1 > score2){
-//       $message.html('Player One wins!');
-//   } else if(gameOver && score2 > score1){
-//       $message.html('Player Two wins!');
-//   } else {
-//       $message.html("It's a tie!");
-//     }
-//   }
+ function updateScore(){
+  var score1 = board.filter(function(value){
+    return value === 1;
+  }).length;
+  var score2 = board.filter(function(value){
+    return value === 2;
+  }).length;
+  $score1.html(score1.toString());
+  $score2.html(score2.toString());
+}
+
+function checkWinner() {
+  if ((jQuery.inArray(0,board)===-1)){
+    if(score1 > score2){
+      $message.html('Player One wins!');
+      $playAgain.html('Play again?');
+    } else if(score2 > score1){
+      $message.html('Player Two wins!');
+      $playAgain.html('Play again?');
+    } else if(score1===score2){
+      $message.html("It's a tie!");
+      $playAgain.html('Play again?');
+    }
+  } else return;
+}
+
+function handleClickH(evt) {
+  if($(this).data('clicked')){
+    return;
+  } else if(player===1) {
+      hArray[$(this).attr("id").substr(1)]=player;
+      $(this).css({'background-color':p1Color}).data('clicked', true);
+  } else {
+      hArray[$(this).attr("id").substr(1)]=player;
+      $(this).css({'background-color':p2Color}).data('clicked', true);
+  }
+    detectBox();
+    checkWinner();
+    switchPlayer();
+}
+
+function handleClickV(evt) {
+  if($(this).data('clicked')){
+    return;
+  } else if(player===1) {
+      vArray[$(this).attr("id").substr(1)]=player;
+      $(this).css({'background-color':"#1FE5BB"}).data('clicked', true);
+  } else {
+      vArray[$(this).attr("id").substr(1)]=player;
+      $(this).css({'background-color':"#FF5733"}).data('clicked', true);
+  }
+    detectBox();
+    checkWinner();
+    switchPlayer();
+}
+
+
 
 
 

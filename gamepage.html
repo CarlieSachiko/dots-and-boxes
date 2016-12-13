@@ -8,11 +8,12 @@
   <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 </head>
 <body>
-  <div id="dots">DOTS</div>
-  <div id="and">AND</div>
-  <div id="boxes">BOXES</div>
-  <div id="turnMessage"></div>
-
+  <header>
+      <div id="dots">DOTS</div>
+      <div id="and">AND</div>
+      <div id="boxes">BOXES</div>
+      <div id="turnMessage"></div>
+  </header>
   <main>
     <div id="player1">
       <div>PLAYER ONE</div>
@@ -23,96 +24,103 @@
     <table>
       <tr>
         <td>•</td>
-        <td><div id="lineH1" class="lineH"></div></td>
+        <td><div id="h0" class="line H"></div></td>
         <td>•</td>
-        <td><div id="lineH2" class="lineH"></div></td>
+        <td><div id="h1" class="line H"></div></td>
         <td>•</td>
-        <!-- <td><div id="1" class="lineH"></div></td>
+        <td><div id="h2" class="line H"></div></td>
         <td>•</td>
-        <td><div id="1" class="lineH"></div></td>
+        <td><div id="h3" class="line H"></div></td>
         <td>•</td>
-        <td><div id="1" class="lineH"></div></td>
-        <td>•</td> -->
       </tr>
       <tr>
-        <td><div id="lineV1" class="lineV"></div></td>
-        <td><div id="square1" class="square"></div></td>
-        <td><div id="lineV2" class="lineV"></div></td>
-        <td><div id="square2" class="square"></div></td>
-        <td><div id="lineV3" class="lineV"></div></td>
-        <!-- <td></td>
-        <td><div id="" class="lineV"></div></td>
-        <td></td>
-        <td><div id="" class="lineV"></div></td>
-        <td></td>
-        <td><div id="" class="lineV"></div></td> -->
+        <td><div id="v0" class="line V"></div></td>
+        <td><div id="0" class="box"></div></td>
+        <td><div id="v1" class="line V"></div></td>
+        <td><div id="1" class="box"></div></td>
+        <td><div id="v2" class="line V"></div></td>
+        <td><div id="2" class="box"></div></td>
+        <td><div id="v3" class="line V"></div></td>
+        <td><div id="3" class="box"></div></td>
+        <td><div id="v4" class="line V"></div></td>
       </tr>
       <tr>
         <td>•</td>
-        <td><div id="lineH3" class="lineH"></div></td>
+        <td><div id="h4" class="line H"></div></td>
         <td>•</td>
-        <td><div id="lineH4" class="lineH"></div></td>
+        <td><div id="h5" class="line H"></div></td>
         <td>•</td>
-        <!-- <td><div id="1" class="lineH"></div></td>
+        <td><div id="h6" class="line H"></div></td>
         <td>•</td>
-        <td><div id="1" class="lineH"></div></td>
+        <td><div id="h7" class="line H"></div></td>
         <td>•</td>
-        <td><div id="1" class="lineH"></div></td>
-        <td>•</td> -->
       </tr>
       <tr>
-        <td><div id="lineV4" class="lineV"></div></td>
-        <td><div id="square3" class="square"></div></td>
-        <td><div id="lineV5" class="lineV"></div></td>
-        <td><div id="square4" class="square"></div></td>
-        <td><div id="lineV6" class="lineV"></div></td>
-        <!-- <td></td>
-        <td><div id="" class="lineV"></div></td>
-        <td></td>
-        <td><div id="" class="lineV"></div></td>
-        <td></td>
-        <td><div id="" class="lineV"></div></td> -->
+        <td><div id="v5" class="line V"></div></td>
+        <td><div id="4" class="box"></div></td>
+        <td><div id="v6" class="line V"></div></td>
+        <td><div id="5" class="box"></div></td>
+        <td><div id="v7" class="line V"></div></td>
+        <td><div id="6" class="box"></td>
+        <td><div id="v8" class="line V"></div></td>
+        <td><div id="7" class="box"></td>
+        <td><div id="v9" class="line V"></div></td>
       </tr>
       <tr>
         <td>•</td>
-        <td><div id="lineH5" class="lineH"></div></td>
+        <td><div id="h8" class="line H"></div></td>
         <td>•</td>
-        <td><div id="lineH6" class="lineH"></div></td>
+        <td><div id="h9" class="line H"></div></td>
         <td>•</td>
-<!--         <td><div id="1" class="lineH"></div></td>
+        <td><div id="h10" class="line H"></div></td>
         <td>•</td>
-        <td><div id="1" class="lineH"></div></td>
+        <td><div id="h11" class="line H"></div></td>
         <td>•</td>
-        <td><div id="1" class="lineH"></div></td>
-        <td>•</td>
- -->      </tr>
-   <!--    <tr>
-        <td><div id="" class="lineV"></div></td>
-        <td></td>
-        <td><div id="" class="lineV"></div></td>
-        <td></td>
-        <td><div id="" class="lineV"></div></td>
-        <td></td>
-        <td><div id="" class="lineV"></div></td>
-        <td></td>
-        <td><div id="" class="lineV"></div></td>
-        <td></td>
-        <td><div id="" class="lineV"></div></td>
+      </tr>
+      <tr>
+        <td><div id="v10" class="line V"></div></td>
+        <td><div id="8" class="box"></div></td>
+        <td><div id="v11" class="line V"></div></td>
+        <td><div id="9" class="box"></div></td>
+        <td><div id="v12" class="line V"></div></td>
+        <td><div id="10" class="box"></div></td>
+        <td><div id="v13" class="line V"></div></td>
+        <td><div id="11" class="box"></div></td>
+        <td><div id="v14" class="line V"></div></td>
       </tr>
       <tr>
         <td>•</td>
-        <td><div id="1" class="lineH"></div></td>
+        <td><div id="h12" class="line H"></div></td>
         <td>•</td>
-        <td><div id="1" class="lineH"></div></td>
+        <td><div id="h13" class="line H"></div></td>
         <td>•</td>
-        <td><div id="1" class="lineH"></div></td>
+        <td><div id="h14" class="line H"></div></td>
         <td>•</td>
-        <td><div id="1" class="lineH"></div></td>
+        <td><div id="h15" class="line H"></div></td>
         <td>•</td>
-        <td><div id="1" class="lineH"></div></td>
+      </tr>
+      <tr>
+        <td><div id="v15" class="line V"></div></td>
+        <td><div id="12" class="box"></div></td>
+        <td><div id="v16" class="line V"></div></td>
+        <td><div id="13" class="box"></div></td>
+        <td><div id="v17" class="line V"></div></td>
+        <td><div id="14" class="box"></div></td>
+        <td><div id="v18" class="line V"></div></td>
+        <td><div id="15" class="box"></div></td>
+        <td><div id="v19" class="line V"></div></td>
+      </tr>
+      <tr>
         <td>•</td>
-      </tr> -->
-
+        <td><div id="h16" class="line H"></div></td>
+        <td>•</td>
+        <td><div id="h17" class="line H"></div></td>
+        <td>•</td>
+        <td><div id="h18" class="line H"></div></td>
+        <td>•</td>
+        <td><div id="h19" class="line H"></div></td>
+        <td>•</td>
+      </tr>
     </table>
     </div>
 
@@ -123,6 +131,6 @@
     <div id="message"></div>
     <div id="playAgain"></div>
   </main>
-  <script src="js/main.js"></script>
+  <script src="js/main2.js"></script>
 </body>
 </html>
