@@ -84,18 +84,23 @@ function boxIsMade(i){
 
 function detectBox(){
   for (var i=0; i<10; i++){
-    if (i<3){
-      if(hArray[i] && vArray[i] && hArray[i+3]&& vArray[i+1]){
+    if (i<4){
+      if(hArray[i] && vArray[i] && hArray[i+4]&& vArray[i+1]){
         boxIsMade(i);
         boxMade=true;
       }
-    } else if (i<6 && i>2){
-      if(hArray[i] && vArray[i+1] && hArray[i+3]&& vArray[i+2]){
+    } else if (i<9){
+      if(hArray[i] && vArray[i+1] && hArray[i+4]&& vArray[i+2]){
         boxIsMade(i);
         boxMade=true;
       }
-    } else if (i<9 && i>5){
-      if(hArray[i] && vArray[i+2] && hArray[i+3]&& vArray[i+3]){
+    } else if (i<14){
+      if(hArray[i] && vArray[i+2] && hArray[i+4]&& vArray[i+3]){
+        boxIsMade(i);
+        boxMade=true;
+      }
+    } else if (i<19){
+      if(hArray[i] && vArray[i+2] && hArray[i+4]&& vArray[i+3]){
         boxIsMade(i);
         boxMade=true;
       }
@@ -119,7 +124,6 @@ function detectBox(){
   //     boxMade = true;
   //   }
   // }
-
   }
 }
 
@@ -180,10 +184,10 @@ function handleClickV(evt) {
     return;
   } else if(player===1) {
       vArray[$(this).attr("id").substr(1)]=player;
-      $(this).css({'background-color':"#1FE5BB"}).data('clicked', true);
+      $(this).css({'background-color':p1Color}).data('clicked', true);
   } else {
       vArray[$(this).attr("id").substr(1)]=player;
-      $(this).css({'background-color':"#FF5733"}).data('clicked', true);
+      $(this).css({'background-color':p2Color}).data('clicked', true);
   }
     detectBox();
     checkWinner();

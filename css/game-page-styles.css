@@ -1,0 +1,143 @@
+* {
+  box-sizing: border-box;
+}
+
+header {
+  margin: auto;
+  text-align: center;
+  position: relative;
+  /*border: black solid 2px;*/
+  width: 80%;
+}
+
+#dots {
+  font-family:'Codystar', cursive;
+  font-size: 45px;
+  text-align: center;
+  letter-spacing: 5px;
+  display: inline-block;
+}
+
+#boxes{
+  font-family: 'Bungee Hairline', cursive;
+  font-size: 60px;
+  padding: 0;
+  text-align: center;
+}
+
+#and{
+  font-family: 'Questrial', cursive;
+  font-size: 10px;
+  letter-spacing: 20px;
+  text-align: center;
+  display: inline-block;
+}
+
+#turnMessage, #playAgain, #message{
+  font-family: 'Questrial', cursive;
+  font-size: 12px;
+  letter-spacing: 5px;
+  text-align: center;
+  padding: 15px;
+}
+
+h1, p{
+  font-family: 'Questrial', cursive;
+  letter-spacing: 10px;
+  text-align: center;
+}
+
+#playAgain:hover {
+  color: purple;
+}
+
+table {
+  margin: auto;
+  padding: 15px;
+}
+
+td {
+  padding: 0;
+  text-align: center;
+  /*border: 2px solid red;*/
+}
+
+div.box {
+  border: black solid 1px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background-color: transparent;
+}
+
+main{
+  margin: auto;
+  /*border: 2px solid yellow;*/
+  text-align: center;
+  padding: 10px;
+}
+
+#board {
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  border: 2px solid black;
+  /*display: inline-block;*/
+  overflow: auto;
+  clear: both;
+}
+
+.player {
+  /*border: 2px solid blue;*/
+  display: inline-block;
+  font-family: 'Questrial', cursive;
+  letter-spacing: 8px;
+  text-align: center;
+  margin: 10px;
+}
+
+#p1 {
+  /*float: left;*/
+  color: #1FE5BB;
+}
+
+#score {
+  padding: 10px;
+}
+
+#p2 {
+  /*float: right;*/
+  color: #FF5733;
+}
+
+div .line {
+  background-color: transparent;
+  padding: 0;
+  margin: auto;
+  /*border: 2px solid orange;*/
+}
+
+div .h {
+  width: 40px;
+  height: 3px;
+}
+
+div.line:hover{
+  background-color: black;
+}
+
+div .v {
+  width: 3px;
+  height: 40px;
+}
+
+div #square {
+  background-color: none;
+}
+
+/*@media screen and (min-width: 520px;){
+  #board {
+    width: ;
+  }
+}
+*/
