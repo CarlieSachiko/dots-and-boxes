@@ -8,7 +8,7 @@ a {
   color: black;
 }
 
-a:hover {
+li:hover, a:hover {
   color: #7300F6;
   cursor: pointer;
 }
@@ -202,10 +202,3 @@ p{
 #backbtn a:hover{
   color: #7300F6;
 }
-
-/*@media screen and (min-width: 520px;){
-  #board {
-    width: ;
-  }
-}
-*/

@@ -23,7 +23,6 @@ var $message = $('#message');
 var $playAgain = $('#playAgain');
 var $score1 = $('div#s1');
 var $score2 = $('div#s2');
-// var lines = [];
 var $lineH = $('td div.h');
 var $lineV = $('td div.v');
 var $board = $('div#board');
@@ -34,13 +33,14 @@ var $table = $('table');
 var $fourBoard = $('li#four');
 var $sixBoard = $('li#six');
 var $eightBoard = $('li#eight');
+var $boardSizeOptions = $('#board-size-options');
 
 // EVENT LISTENERS //
 $line.on('click', handleClick);
 $line.on('mouseenter', lineHover);
 $line.on('mouseleave', lineUnhover);
 $playAgain.on('click', initialize);
-$
+$forBoard.on('click', fourTable)
 // $fourBoard.on('click', setFourBoard);
 // $sixBoard.on('click', setSixBoard);
 // $eightBoard.on('click', setEightBoard);
@@ -58,7 +58,11 @@ $
 // function setEightBoard(){
 //   boardSize = 8;
 // }
-
+function fourTable () {
+  $boardSizeOptions.hide();
+  $table.show();
+  initialize();
+}
 function initialize(){
   // createBoard(boardSize);
   gameOver = false;
