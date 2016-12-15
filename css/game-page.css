@@ -1,0 +1,211 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Annie Use Your Telescope', cursive;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: #7300F6;
+  cursor: pointer;
+}
+
+html {
+  background: url('../assets/pic3-2.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#board-size-options {
+  width: 40%;
+  display: inline-block;
+  font-family: 'Questrial', cursive;
+  letter-spacing: 8px;
+  font-size: 3.5vw;
+  text-align: center;
+  margin: 10px;
+
+}
+
+header {
+  margin: auto;
+  text-align: center;
+  /*border: black solid 2px;*/
+  width: 40%;
+  padding-top: 20px;
+}
+
+#dots {
+  font-family:'Codystar', cursive;
+  font-size: 5vw;
+  text-align: center;
+  letter-spacing: 1vw;
+  display: inline-block;
+}
+
+#boxes{
+  font-family: 'Bungee Hairline', cursive;
+  font-size: 7vw;
+  padding: 0;
+  text-align: center;
+}
+
+#and{
+  font-size: 2vw;
+  letter-spacing: 1vw;
+  text-align: center;
+  display: inline-block;
+}
+
+/*img {
+  width: 250px;
+  float: left;
+  display: inline;
+  border: yellow 2px solid;
+}*/
+
+#turnMessage{
+  font-size: 20px;
+  letter-spacing: 5px;
+  text-align: center;
+  padding: 15px;
+}
+
+#win-message{
+  font-size: 30px;
+  letter-spacing: 5px;
+  text-align: center;
+  padding: 15px 15px 30px;
+/*  display: inline-block;
+  width: 30px;
+  border: black solid 3px;*/
+}
+
+#playAgain:hover {
+  color: #7300F6;
+}
+
+table {
+  display:none;
+  margin: auto;
+  padding: 15px;
+  border: black solid 2px;
+  /*clear: both;*/
+}
+
+td {
+  padding: 0;
+  text-align: center;
+  font-family: none;
+  /*border: 2px solid red;*/
+}
+
+div.box {
+  /*border: black solid 1px;*/
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  background-color: transparent;
+}
+
+main{
+  margin: auto;
+  width: 80%;
+  /*border: 2px solid yellow;*/
+  text-align: center;
+  padding: 5px;
+}
+
+#board {
+  margin-left: auto;
+  margin-right: auto;
+  width: 330px;
+/*  display: inline-block;
+  overflow: auto;
+  clear: both;*/
+}
+div.player {
+  display: inline-block;
+  font-family: 'Questrial', cursive;
+  letter-spacing: 8px;
+  font-size: 3.5vw;
+  text-align: center;
+  margin: 10px;
+}
+
+#p1, #s1 {
+  /*float: left;*/
+  color: #F60303;
+}
+
+#score {
+  padding: 10px;
+}
+
+#p2, #s2 {
+  /*float: right;*/
+  color: #042AFF;
+}
+
+div .line {
+  background-color: transparent;
+  padding: 0;
+  margin: auto;
+  /*border: 2px solid orange;*/
+}
+
+div .line:hover{
+  cursor: pointer;
+}
+
+div .h {
+  width: 50px;
+  height: 4px;
+}
+
+div .v {
+  width: 4px;
+  height: 50px;
+}
+
+div #square {
+  background-color: none;
+}
+
+/*INSUTRCTIONS PAGE CSS*/
+h1{
+  letter-spacing: 10px;
+  text-align: center;
+}
+
+#instruct {
+  width: 85%;
+  margin: auto;
+}
+
+p{
+  font-size: 30px;
+  text-align: left;
+}
+
+#backbtn a{
+  font-size: 50px;
+  text-decoration: none;
+  color: black;
+}
+
+#backbtn a:hover{
+  color: #7300F6;
+}
+
+/*@media screen and (min-width: 520px;){
+  #board {
+    width: ;
+  }
+}
+*/

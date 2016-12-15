@@ -1,146 +1,60 @@
 /*
-handle line click
-  return if line is already clicked
-  set line to cur player
-  get (up to)two adjacent cells--> a fn that returns array [{row:_,col:_},{row:_,col:_}]
-  for each adj cell
-    if cell is complete
-      update board for that cell/cur player
-  winner check
-  render()
+DOTS & BOXES
+[Overall Game Play]
+1. Define the apps vars
+2. Register event listeners
+3. Initialize the apps state
+4. Render
+5. Handle players hovering over position
+  5a. Do nothing if position is full
+6. Handle Players clicking position
+  6a. Do nothing if position is full
+  6b. Make game play move
+    -Check if box is made
+       -if box made add score to player and let player move again until no more boxes are made
+    -Mark line for current player
+    -Render?
+    -Check if game is over (if win or lose)
+    -if not game over switch turns
+    -Render
 */
 
-
 // VARIABLES //
-var board, player, hArray, vArray;
-var p1Color="#1FE5BB";
-var p2Color="#FF5733";
-var $line = $('div.line')
+var board, hArray, vArray, score1, score2, boxMade;
+var $box = $('div#i.box');
+var $score1 = $('div#score1');
+var $score2 = $('div#score2');
 var $message = $('#message');
 var $playAgain = $('#playAgain');
 var $turnMessage = $('#turnMessage');
-var $score1 = $('div#s1');
-var $score2 = $('div#s2');
-var lines = [];
-var $lineH = $('td div.h');
-var $lineV = $('td div.v');
+var $lineH = $('td div.H');
+var $lineV = $('td div.V');
+var p1Color="#1FE5BB";
+var p2Color="#FF5733";
 
 
 // EVENT LISTENERS //
-$line.on('click', handleClick);
+$lineH.on('click', handleClickH);
+$lineV.on('click', handleClickV);
 $playAgain.on('click', initialize);
 
 
 // FUNCTIONS //
-function initialize(){
+function initialize() {
   player=1;
-  board=[
-    [0,0,0,0],
-    [0,0,0,0],
-    [0,0,0,0],
-    [0,0,0,0]
-  ]
-  hArray=[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false];
-  vArray=[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false];
+  boxMade = false;
   updateTurnMessage();
+  board=[0,0,0,0];
+  hArray=[false,false,false,false,false,false,false,false,false,false,false,false];
+  vArray=[false,false,false,false,false,false,false,false,false,false,false,false];
+  score1=[];
+  score2=[];
+  updateScore();
+  render();
+  checkWinner();
 }
 
 initialize();
-
-function getAdjCells(lineId){
-  var lineNum = parseInt(lineId.substr(1));
-  var cells=[];
-  var hasTwoCells;
-  if(lineId[0]==='h'){
-    hArray[lineNum]=player;
-    var row = Math.min((Math.floor(lineNum/board[0].length)), board[0].length);
-    hasTwoCells = (row !== board.length && row !== 0);
-    var col = Math.min((Math.floor(lineNum-board.length*row)), board[0].length-1);
-    row -= row === board.length ? 1 : 0;
-    cells.push({row: row, col: col});
-    if (hasTwoCells) cells.push({row: row -1, col: col});
-  } else {
-    vArray[lineNum]=player;
-    var col=Math.min((Math.floor(lineNum/board[0].length)), board[0].length);
-    hasTwoCells = (col !== board.length && col !== 0);
-    var row=Math.min((Math.floor(lineNum-board.length*col)), board[0].length-1);
-    col -= col === board.length ? 1 : 0;
-    cells.push({row: row, col: col});
-    if (hasTwoCells) cells.push({row: row, col: col-1});
-  }
-  console.log(cells);
-  return cells;
-}
-
-function render(){
-  var score1 = 0;
-  var score2 = 0;
-//update box colors, and score depending on board array
-  for(i=0; i<board.length; i++){
-    for(j=0; j<board[i].length; j++){
-      var $bx = $('#' + i + '-' + j);
-      if(board[i][j]===1){
-        $($bx).css('background-color', p1Color);
-        score1++;
-      } else if(board[i][j]===2){
-        $($bx).css('background-color', p2Color);
-        score2++
-      } else {
-        $($bx).css('background-color', 'transparent');
-      }
-      $score1.html(score1.toString());
-      $score2.html(score2.toString());
-    };
-  };
-
-  hArray.forEach(function(ln,idx){
-    var $ln = $('#h' + idx);
-    if(hArray[idx]===1){
-      $($ln).css('background-color', p1Color).data('clicked', true);;
-    } else if(hArray[idx]===2){
-      $($ln).css('background-color', p2Color).data('clicked', true);;
-    } else if(hArray[idx]===0){
-      $($ln).css('background-color', 'transparent');
-    }
-  });
-  vArray.forEach(function(ln,idx){
-    var $ln = $('#v' + idx);
-    if(vArray[idx]===1){
-      $($ln).css('background-color', p1Color).data('clicked', true);;
-    } else if(vArray[idx]===2){
-      $($ln).css('background-color', p2Color).data('clicked', true);;
-    } else if(vArray[idx]===0){
-      $($ln).css('background-color', 'transparent');
-    }
-  });
-  // updateTurnMessage();
-}
-
-function switchPlayer(){
-  //if box has not been made switch players, else cur player gets another turn
-  player = (player===1) ? 2 : 1;
-  // if (!lineVals.includes(false)){
-  //   return;
-  // } else {
-  //   player = (player===1) ? 2 : 1;
-  // }
-}
-
-function checkWinner(){
-  // change score1 and score2
-  if ((jQuery.inArray(0,board)===-1)){
-    if($score1.length > $score2.length){
-      $message.html('Player One wins!');
-      $playAgain.html('Play again?');
-    } else if($score2.length > $score1.length){
-      $message.html('Player Two wins!');
-      $playAgain.html('Play again?');
-    } else if($score1.length===$score2.length){
-      $message.html("It's a tie!");
-      $playAgain.html('Play again?');
-    }
-  } else return;
-}
 
 function updateTurnMessage(){
   if(player===1){
@@ -150,32 +64,144 @@ function updateTurnMessage(){
   }
 }
 
-function handleClick(evt){
-   if($(this).data('clicked')){
-      return;
-   }
-    var cells = getAdjCells($(this).attr('id'));
-    cells.forEach(function(cell) {
-      var lineVals = getLineValsForCell(cell);
-      if (!lineVals.includes(false)) {
-        board[cell.row][cell.col] = player;
-        console.log(board);
-      }
-    });
-    switchPlayer();
-    render();
+function switchPlayer(){
+  if (!boxMade){
+    player = (player===1) ? 2 : 1;
+  } else {
+    player = player;
+    boxMade = false;
+  }
+  updateTurnMessage();
 }
 
-function getLineValsForCell(cell) {
-  // var {row, col} = cell; ES2015 for the below two lines
-  var row = cell.row;
-  var col = cell.col;
-  var t = row * board[row].length + col;
-  var b = t + board[row].length;
-  var l = col * board[col].length + row;
-  var r = l + board[col].length;
-  return [hArray[t], vArray[r], hArray[b], vArray[l]];
+function boxIsMade(i){
+  console.log(board);
+  board[i]=player;
+  render();
+  updateScore();
+  boxMade=true;
 }
+
+function detectBox(){
+  for (var i=0; i<10; i++){
+    if (i<4){
+      if(hArray[i] && vArray[i] && hArray[i+4]&& vArray[i+1]){
+        boxIsMade(i);
+        boxMade=true;
+      }
+    } else if (i<9){
+      if(hArray[i] && vArray[i+1] && hArray[i+4]&& vArray[i+2]){
+        boxIsMade(i);
+        boxMade=true;
+      }
+    } else if (i<14){
+      if(hArray[i] && vArray[i+2] && hArray[i+4]&& vArray[i+3]){
+        boxIsMade(i);
+        boxMade=true;
+      }
+    } else if (i<19){
+      if(hArray[i] && vArray[i+2] && hArray[i+4]&& vArray[i+3]){
+        boxIsMade(i);
+        boxMade=true;
+      }
+    } else boxMade=false;
+  //   if(gridH[0] && gridV[0] && gridH[2] && gridV[1] && !board[0]){
+  //     render(0);
+  //     board[i]=player;
+  //     updateScore();
+  //     boxMade = true;
+  //   } else if(gridH[1] && gridV[1] && gridH[3] && gridV[2] && !board[1]){
+  //     render(1);
+  //     updateScore();
+  //     boxMade = true;
+  //   } else if(gridH[2] && gridV[3] && gridH[4] && gridV[4] && !board[2]){
+  //     render(2);
+  //     updateScore();
+  //     boxMade = true;
+  //   } else if(gridH[3] && gridV[4] && gridH[5] && gridV[5] && !board[3]){
+  //     render(3);
+  //     updateScore();
+  //     boxMade = true;
+  //   }
+  // }
+  }
+}
+
+function render() {
+  board.forEach(function(box,idx){
+    var $bx = $('#' + idx);
+    if(board[idx]===1){
+      $($bx).css('background-color', p1Color);
+    } else if(board[idx]===2){
+      $($bx).css('background-color', p2Color);
+    } else return;
+  });
+}
+
+ function updateScore(){
+  var score1 = board[i][j].filter(function(value){
+    return value === 1;
+  }).length;
+  var score2 = board.filter(function(value){
+    return value === 2;
+  }).length;
+  $score1.html(score1.toString());
+  $score2.html(score2.toString());
+}
+
+function checkWinner() {
+  if ((jQuery.inArray(0,board)===-1)){
+    if(score1 > score2){
+      $message.html('Player One wins!');
+      $playAgain.html('Play again?');
+    } else if(score2 > score1){
+      $message.html('Player Two wins!');
+      $playAgain.html('Play again?');
+    } else if(score1===score2){
+      $message.html("It's a tie!");
+      $playAgain.html('Play again?');
+    }
+  } else return;
+}
+
+function handleClickH(evt) {
+  if($(this).data('clicked')){
+    return;
+  } else if(player===1) {
+      hArray[$(this).attr("id").substr(1)]=player;
+      $(this).css({'background-color':p1Color}).data('clicked', true);
+  } else {
+      hArray[$(this).attr("id").substr(1)]=player;
+      $(this).css({'background-color':p2Color}).data('clicked', true);
+  }
+    detectBox();
+    checkWinner();
+    switchPlayer();
+}
+
+function handleClickV(evt) {
+  if($(this).data('clicked')){
+    return;
+  } else if(player===1) {
+      vArray[$(this).attr("id").substr(1)]=player;
+      $(this).css({'background-color':p1Color}).data('clicked', true);
+  } else {
+      vArray[$(this).attr("id").substr(1)]=player;
+      $(this).css({'background-color':p2Color}).data('clicked', true);
+  }
+    detectBox();
+    checkWinner();
+    switchPlayer();
+}
+
+
+
+
+
+
+
+
+
 
 
 

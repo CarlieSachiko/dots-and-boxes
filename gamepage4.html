@@ -3,29 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <title>Dots and Boxes Game</title>
-  <link href="https://fonts.googleapis.com/css?family=Bungee+Hairline|Codystar|Geostar+Fill|Megrim|Monofett|Questrial" rel="stylesheet">
-  <link rel="stylesheet" href="css/game-page-styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Bungee+Hairline|Codystar|Annie+Use+Your+Telescope|Megrim|Monofett|Questrial|Reenie+Beanie|Nothing+You+Could+Do" rel="stylesheet">
+  <link rel="stylesheet" href="css/game-page.css">
   <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 </head>
 <body>
   <header>
+    <a href="index.html">
       <div id="dots">DOTS</div>
       <div id="and">AND</div>
       <div id="boxes">BOXES</div>
-      <hr>
-      <div id="turnMessage"></div>
-      <hr>
+    </a>
   </header>
   <main>
-    <div id="p1" class="player">
-      <div>PLAYER ONE</div>
+    <div class="player">
+      <div id="p1">PLAYER ONE</div>
       <div id="s1" class="score">0</div>
     </div>
-    <div id="p2" class="player">
-      <div>PLAYER TWO</div>
+    <div class="player">
+      <div id="p2">PLAYER TWO</div>
       <div id="s2" class="score">0</div>
     </div>
-
+    <!-- <div id="speech-bubble">
+      <img src="assets/speech-bubble.png">
+    </div> -->
     <div id="board">
     <table>
       <tr>
@@ -67,9 +68,9 @@
         <td><div id="v5" class="line v"></div></td>
         <td><div id="1-1" class="box"></div></td>
         <td><div id="v9" class="line v"></div></td>
-        <td><div id="1-2" class="box"></td>
+        <td><div id="1-2" class="box"></div></td>
         <td><div id="v13" class="line v"></div></td>
-        <td><div id="1-3" class="box"></td>
+        <td><div id="1-3" class="box"></div></td>
         <td><div id="v17" class="line v"></div></td>
       </tr>
       <tr>
@@ -129,10 +130,12 @@
       </tr>
     </table>
     </div>
-
-    <div id="message"></div>
-    <div id="playAgain"></div>
+    <div id="win-message">
+      <div id="message"></div>
+      <div id="playAgain"></div>
+    </div>
   </main>
-  <script src="js/main2.js"></script>
+  <!-- <script src="js/main.js"></script> -->
+  <script src="js/game-page.js"></script>
 </body>
 </html>

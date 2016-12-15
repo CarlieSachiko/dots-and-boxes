@@ -1,32 +1,46 @@
 * {
   box-sizing: border-box;
+  font-family: 'Annie Use Your Telescope', cursive;
 }
 
-body{
-  /*border: solid 2px red;*/
+a:hover{
+  cursor: pointer;
 }
+
+html {
+  /*background: url(../assets/pic2-2.jpg) no-repeat center center fixed;*/
+ /* -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;*/
+  /*border: solid() 2px red;*/
+}
+
+.container h1 {
+    color: white;
+}
+
 
 header {
   margin: auto;
   text-align: center;
   position: relative;
-  /*border: black solid 2px;*/
-  width: 600px;
+  /*border: yellow solid 2px;*/
+  width: 70%;
   padding-top: 70px;
+  position: relative;
 }
 
 #game {
-  font-family: 'Questrial', cursive;
-  font-size: 20px;
-  letter-spacing: 10px;
+  font-size: 5vw;
+  letter-spacing: 1vw;
   text-align: center;
-  display: inline-block;
   padding-bottom: 20px;
 }
 
 #dots {
   font-family:'Codystar', cursive;
-  font-size: 110px;
+  font-size: 9vw;
   letter-spacing: 15px;
   /*border: solid 2px red;*/
   display: inline-block;
@@ -35,44 +49,49 @@ header {
 
 #boxes{
   font-family: 'Bungee Hairline', cursive;
-  font-size: 160px;
+  font-size: 13vw;
   padding: 0;
   margin-top: 0;
   /*border: solid 2px red;*/
-  display: inline-block;
   text-align: center;
 }
 
 #and {
-  font-family: 'Questrial', cursive;
-  font-size: 30px;
-  letter-spacing: 40px;
+  font-size: 3vw;
+  letter-spacing: 3vw;
   /*border: solid 2px red;*/
   display: inline-block;
   text-align: center;
 }
 
 main{
-  margin: auto;
-  width: 20em;
-  border: solid 2px black;
-  /*border-radius: 50%;*/
+  margin: auto auto 100px;
+  width: 40%;
+  /*border: solid 2px black;*/
   text-align: center;
   overflow: auto;
 }
 
 #play{
-  font-family: 'Questrial', cursive;
-  font-size: 20px;
-  letter-spacing: 10px;
+  font-size: 3vw;
+  letter-spacing: 1vw;
   text-align: center;
   margin: 40px 20px 20px 20px;
 }
 
-#instruct {
-  font-family: 'Questrial', cursive;
-  font-size: 20px;
-  letter-spacing: 10px;
+div.play, ul{
+  font-size: 3vw;
+}
+
+ul{
+  text-align: left;
+  margin: auto;
+  width: 250px;
+}
+
+#instructions, #about-me {
+  font-size: 3vw;
+  letter-spacing: 1vw;
   text-align: center;
   margin: 40px 20px 40px 20px;
 }
@@ -82,8 +101,13 @@ a {
   color: black;
 }
 
-a:hover {
+#play:hover, li:hover, a:hover {
   color: #7300F6;
+  cursor: pointer;
+}
+
+#board-size-options {
+  display:none;
 }
 
 .sliding-u-l-r {
@@ -103,9 +127,66 @@ a:hover {
 */
 
 
-
-@media screen and (max-width: 550px){
+/*RESPONSIVE CSS*/
+@media screen and (max-width: 600px){
   header{
+    width: 300px;
+  }
 
+  #game {
+    font-size: 29px;
+  }
+
+  #dots {
+    font-size: 53px;
+  }
+
+  #and {
+    font-size: 21px;
+  }
+
+  #boxes {
+    font-size: 78px;
   }
 }
+
+@media screen and (max-width: 800px){
+  main {
+    width: 300px;
+  }
+
+  #play, div.play, ul, #instructions {
+    font-size: 24px;
+  }
+}
+
+@media screen and (min-width: 1200px){
+  header{
+    width: 800px;
+  }
+
+  #game {
+    font-size: 61px
+  }
+
+  #dots {
+    font-size: 111px;
+  }
+
+  #and {
+    font-size: 37px;
+  }
+
+  #boxes {
+    font-size: 160px;
+  }
+}
+
+
+
+
+
+
+
+
+
