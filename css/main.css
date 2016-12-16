@@ -8,11 +8,11 @@ a:hover{
 }
 
 html {
-  /*background: url(../assets/pic2-2.jpg) no-repeat center center fixed;*/
- /* -webkit-background-size: cover;
+  background: url(../assets/pic2-2.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;*/
+  background-size: cover;
   /*border: solid() 2px red;*/
 }
 
@@ -26,7 +26,7 @@ header {
   position: relative;
   /*border: yellow solid 2px;*/
   width: 70%;
-  padding-top: 70px;
+  padding-top: 50px;
   position: relative;
 }
 
@@ -64,18 +64,19 @@ header {
 }
 
 main{
-  margin: auto auto 100px;
+  margin: 0 auto 100px;
   width: 40%;
   /*border: solid 2px black;*/
   text-align: center;
   overflow: auto;
+  padding-top: 0;
 }
 
 #play{
   font-size: 3vw;
   letter-spacing: 1vw;
   text-align: center;
-  margin: 40px 20px 20px 20px;
+  margin: 0 20px 20px 20px;
 }
 
 div.play, ul{
@@ -92,7 +93,8 @@ ul{
   font-size: 3vw;
   letter-spacing: 1vw;
   text-align: center;
-  margin: 40px 20px 40px 20px;
+  margin: 20px 20px 40px 20px;
+  /*border: black solid 2px;*/
 }
 
 a {
@@ -103,20 +105,6 @@ a {
 #play:hover, li:hover, a:hover {
   color: #7300F6;
   cursor: pointer;
-}
-
-#board-size-options {
-  display:none;
-}
-
-.sliding-u-l-r {
-    text-decoration: none;
-    display: inline-block;
-    border-bottom: 3px solid black;
-    width: 0px;
-    transition: 0.5s ease;
-    white-space: nowrap;
-    height: 25px;
 }
 
 
@@ -148,7 +136,7 @@ a {
     width: 300px;
   }
 
-  #play, div.play, ul, #instructions {
+  #play, div.play, ul, #instructions, #about-me {
     font-size: 24px;
   }
 }

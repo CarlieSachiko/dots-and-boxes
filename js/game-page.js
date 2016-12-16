@@ -53,9 +53,9 @@ var $player2 = $('div#p2');
 var $html = $('html');
 var $table = $('#table');
 var $board = $('#board');
-var $fourBoard = $('li#four');
-var $sixBoard = $('li#six');
-var $eightBoard = $('li#eight');
+var $fourBoard = $('div#four');
+var $sixBoard = $('div#six');
+var $eightBoard = $('div#eight');
 var $boardSizeOptions = $('#board-size-options');
 
 // CONSTANTS //
@@ -271,8 +271,6 @@ function switchPlayer(){
 function checkWinner(){
   if (!hArray.includes(false) && !vArray.includes(false)){
     if(score1 > score2){
-      // $table.fadeTo(500, 0.15);
-      // $html.css({'background': 'http://i.imgur.com/SIaBwPB.jpg', 'background-size': 'cover'});
       $message.html('PLAYER ONE WINS!');
       $playAgain.html('Play again?');
     } else if(score1 < score2){

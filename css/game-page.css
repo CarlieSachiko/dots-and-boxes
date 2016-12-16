@@ -8,7 +8,7 @@ a {
   color: black;
 }
 
-li:hover, a:hover {
+div.bs:hover, a:hover {
   color: #7300F6;
   cursor: pointer;
 }
@@ -40,7 +40,7 @@ header {
 
 #dots {
   font-family:'Codystar', cursive;
-  font-size: 5vw;
+  font-size: 4vw;
   text-align: center;
   letter-spacing: 1vw;
   display: inline-block;
@@ -48,7 +48,7 @@ header {
 
 #boxes{
   font-family: 'Bungee Hairline', cursive;
-  font-size: 7vw;
+  font-size: 6vw;
   padding: 0;
   text-align: center;
 }
@@ -79,20 +79,26 @@ header {
   letter-spacing: 5px;
   text-align: center;
   padding: 15px 15px 30px;
-/*  display: inline-block;
-  width: 30px;
-  border: black solid 3px;*/
+  display: inline;
+  float:left;
+  width: 100%;
+  /*border: black solid 3px;*/
 }
 
 #playAgain:hover {
   color: #7300F6;
+  cursor: pointer;
 }
 
 #table {
   margin: auto;
   padding: 15px;
+ /* position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -75px;
+  margin-left: -150px;*/
   /*border: black solid 2px;*/
-  /*clear: both;*/
 }
 
 td {
@@ -113,19 +119,14 @@ div.box {
 main{
   margin: auto;
   width: 80%;
-  /*border: 2px solid yellow;*/
   text-align: center;
   padding: 5px;
 }
 
 #board {
-  margin-left: auto;
-  margin-right: auto;
-/*  width: 330px;*/
-/*  display: inline-block;
-  overflow: auto;
-  clear: both;*/
+  margin: 0 auto 100px;
 }
+
 div.player {
   display: inline-block;
   font-family: 'Questrial', cursive;
@@ -133,6 +134,7 @@ div.player {
   font-size: 3.5vw;
   text-align: center;
   margin: 10px;
+  border: yellow solid 2px;
 }
 
 #p1, #s1 {
@@ -199,3 +201,57 @@ p{
 #backbtn a:hover{
   color: #7300F6;
 }
+
+
+/*RESPONSIVE CSS*/
+@media screen and (max-width: 800px){
+  header{
+    width: 300px;
+  }
+
+  #dots {
+    font-size: 31px;
+  }
+
+  #and {
+    font-size: 16px;
+  }
+
+  #boxes {
+    font-size: 48px;
+  }
+}
+
+@media screen and (max-width: 800px){
+  main {
+    width: 100%;
+  }
+
+  #board-size-options, div.player {
+    font-size: 24px;
+  }
+
+/*  #table {
+    margin: auto;
+    padding: 15px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -150px;
+  }*/
+
+}
+
+@media screen and (min-width: 800px){
+  main {
+    width: 70%;
+  }
+
+  #board-size-options, div.player {
+    font-size: 30px;
+  }
+}
+
+
+

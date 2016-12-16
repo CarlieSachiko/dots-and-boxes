@@ -14,6 +14,8 @@ $(function () {
       'url(http://i.imgur.com/gsDnbu2.jpg) no-repeat center center fixed',
       'url(http://i.imgur.com/VHdQHzT.jpg) no-repeat center center fixed',
       'url(http://i.imgur.com/SIaBwPB.jpg) no-repeat center center fixed',
+      'url(http://i.imgur.com/dIzGVh9.jpg) no-repeat center center fixed',
+      'url(http://i.imgur.com/SZo3BOK.jpg) no-repeat center center fixed'
       ];
     var current = 0;
 
