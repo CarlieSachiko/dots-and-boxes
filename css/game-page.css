@@ -23,13 +23,11 @@ html {
 
 #board-size-options {
   width: 40%;
-  display: inline-block;
+  /*display: inline-block;*/
   font-family: 'Questrial', cursive;
-  letter-spacing: 8px;
-  font-size: 3.5vw;
+  font-size: 3vw;
   text-align: center;
-  margin: 10px;
-
+  margin: auto;
 }
 
 header {
@@ -90,11 +88,10 @@ header {
   color: #7300F6;
 }
 
-table {
-  display:none;
+#table {
   margin: auto;
   padding: 15px;
-  border: black solid 2px;
+  /*border: black solid 2px;*/
   /*clear: both;*/
 }
 
@@ -124,7 +121,7 @@ main{
 #board {
   margin-left: auto;
   margin-right: auto;
-  width: 330px;
+/*  width: 330px;*/
 /*  display: inline-block;
   overflow: auto;
   clear: both;*/
@@ -132,7 +129,7 @@ main{
 div.player {
   display: inline-block;
   font-family: 'Questrial', cursive;
-  letter-spacing: 8px;
+  letter-spacing: 1vw;
   font-size: 3.5vw;
   text-align: center;
   margin: 10px;

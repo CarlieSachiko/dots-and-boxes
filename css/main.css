@@ -20,7 +20,6 @@ html {
     color: white;
 }
 
-
 header {
   margin: auto;
   text-align: center;
@@ -119,12 +118,6 @@ a {
     white-space: nowrap;
     height: 25px;
 }
-
-/*.sliding-u-l-r:hover {
-    border-bottom: 3px solid blue;
-    width: 200px;
-}
-*/
 
 
 /*RESPONSIVE CSS*/

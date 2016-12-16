@@ -15,10 +15,13 @@ handle line click
 ////////////////
 
 // VARIABLES //
-var board, player, hArray, vArray, boxMade, score1, score2, boardSize;
+var player, boxMade, score1, score2, boardSize, html;
 var p1Color = "#F60303";
 var p2Color = "#042AFF";
-var $line = $('div.line')
+var board = [];
+var hArray = [];
+var vArray = [];
+var $line;
 var $message = $('#message');
 var $playAgain = $('#playAgain');
 var $score1 = $('div#s1');
@@ -29,89 +32,124 @@ var $board = $('div#board');
 var $player1 = $('div#p1');
 var $player2 = $('div#p2');
 var $html = $('html');
-var $table = $('table');
+var $table = $('#table');
+var $board = $('#board');
 var $fourBoard = $('li#four');
 var $sixBoard = $('li#six');
 var $eightBoard = $('li#eight');
 var $boardSizeOptions = $('#board-size-options');
 
+// CONSTANTS //
+var dotTd = '<td>•</td>';
+
 // EVENT LISTENERS //
-$line.on('click', handleClick);
-$line.on('mouseenter', lineHover);
-$line.on('mouseleave', lineUnhover);
-$playAgain.on('click', initialize);
-$forBoard.on('click', fourTable)
-// $fourBoard.on('click', setFourBoard);
-// $sixBoard.on('click', setSixBoard);
-// $eightBoard.on('click', setEightBoard);
+function registerListeners() {
+  $line = $('div.line')
+  $line.on('click', handleClick);
+  $line.on('mouseenter', lineHover);
+  $line.on('mouseleave', lineUnhover);
+}
+
+$playAgain.on('click', restart);
+$fourBoard.on('click', function() {setBoard(4);});
+$sixBoard.on('click', () => setBoard(6));
+$eightBoard.on('click', () => setBoard(8));
 
 
-// FUNCTIONS //
-// function setFourBoard(){
-//   boardSize = 4;
-// }
+  ////////////////
+ ////FUNCTIONS///
+////////////////
 
-// function setSixBoard(){
-//   boardSize = 6;
-// }
-
-// function setEightBoard(){
-//   boardSize = 8;
-// }
-function fourTable () {
+// BOARD CREATION //
+function setBoard(size) {
   $boardSizeOptions.hide();
-  $table.show();
+  boardSize = size;
+  createBoard(size);
+  createBoardArrays(size);
+  registerListeners();
+  $line.data('clicked', false);
+}
+
+function buildRowPair(row, size) {
+  var sRowPair = '';
+  sRowPair = buildRowOne(row, size);
+  sRowPair += buildRowTwo(row, size);
+  return sRowPair;
+}
+
+function buildRowTwo(row, size) {
+  var s = '<tr>';
+  for (var cellPair = 0; cellPair < size; cellPair++) {
+    s += `<td><div id="v${row + (cellPair * size)}" class="line v"></div></td>`;
+    s += `<td><div id="${row}-${cellPair}" class="box"></div></td>`;
+  }
+  s += `<td><div id="v${row + (cellPair * size)}" class="line v"></div></td>`;
+  s += '</tr>\n';
+  return s;
+}
+
+function buildRowOne(row, size) {
+  var s = '<tr>';
+  for (var cellPair = 0; cellPair < size; cellPair++) {
+    var tmp = `<td><div id="h${row * size + cellPair}" class="line h"></div></td>`;
+    s += dotTd;
+    s += tmp;
+  }
+  s += dotTd + '</tr>\n';
+  return s;
+}
+
+function buildLastRow(row, size) {
+  var s = '<tr>';
+  for (var cellPair = size*size; cellPair <= (size*size); cellPair++) {
+    var tmp = `<td><div id="h${row * size + cellPair}" class="line h"></div></td>`;
+    s += dotTd;
+    s += tmp;
+  }
+  s += dotTd + '</tr>\n';
+  return s;
+}
+
+function createBoard(x){
+  html = '';
+  for (var row = 0; row < x; row++) {
+    html += buildRowPair(row, x);
+  }
+  html += buildRowOne(row, x);
+
+  $table.html(html);
   initialize();
 }
-function initialize(){
-  // createBoard(boardSize);
-  gameOver = false;
-  player = 1;
-  board = [
-    [0,0,0,0],
-    [0,0,0,0],
-    [0,0,0,0],
-    [0,0,0,0]
-  ];
-  hArray = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false];
-  vArray = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false];
-  render();
-  updateTurnMessage();
-  $line.data('clicked', false);
-  $message.html('');
-  $playAgain.html('');
-  $board.show();
+
+function createBoardArrays(x) {
+  var innerBrdArr = [];
+  for(var i = 0; i < x; i++){
+    innerBrdArr.push(0);
+  }
+  for(var i = 0; i < x; i++){
+    board.push(innerBrdArr.slice());
+  }
+  for(var i = 0; i < (x*(x+1)); i++){
+    hArray.push(false);
+    vArray.push(false);
+  }
 }
 
-initialize();
+// GAME PLAY JS //
+function restart(){
+  $board.hide();
+  $boardSizeOptions.show();
+  $score1.html('');
+  $score2.html('');
+  initialize();
+}
 
-function createBoard(s){
-  var $boardTemplate = `<tr>
-        <td>•</td>
-        <td><div id="h${i}" class="line h"></div></td>
-        <td>•</td>
-        <td><div id="h1" class="line h"></div></td>
-        <td>•</td>
-        <td><div id="h2" class="line h"></div></td>
-        <td>•</td>
-        <td><div id="h3" class="line h"></div></td>
-        <td>•</td>
-      </tr>
-      <tr>
-        <td><div id="v0" class="line v"></div></td>
-        <td><div id="0-0" class="box"></div></td>
-        <td><div id="v4" class="line v"></div></td>
-        <td><div id="0-1" class="box"></div></td>
-        <td><div id="v8" class="line v"></div></td>
-        <td><div id="0-2" class="box"></div></td>
-        <td><div id="v12" class="line v"></div></td>
-        <td><div id="0-3" class="box"></div></td>
-        <td><div id="v16" class="line v"></div></td>
-      </tr>`
-
-  for (i=0; i<boardSize; i++){
-    $tbody.append($boardTemplate);
-  }
+function initialize(){
+  player = 1;
+  render();
+  updateTurnMessage();
+  $message.html('');
+  $playAgain.html('');
 }
 
 function lineHover(evt){
@@ -167,7 +205,7 @@ function render(){
         score1++;
       } else if(board[i][j] === 2){
         $($bx).css('background-color', p2Color);
-        score2++
+        score2++;
       } else {
         $($bx).css('background-color', 'transparent');
       }
@@ -175,6 +213,8 @@ function render(){
       $score2.html(score2.toString());
     };
   };
+  console.log(board);
+  boxMade = false;
   function lineColor(lnArray, i, line){
     if(lnArray[i] === 1){
       $(line).css('background-color', p1Color).data('clicked', true);
@@ -207,7 +247,7 @@ function switchPlayer(){
 function checkWinner(){
   if (!hArray.includes(false) && !vArray.includes(false)){
     if(score1 > score2){
-      $board.fadeTo(500, 0.15);
+      $table.fadeTo(500, 0.15);
       // $html.css({'background': 'http://i.imgur.com/SIaBwPB.jpg', 'background-size': 'cover'});
       $message.html('PLAYER ONE WINS!');
       $playAgain.html('Play again?');
@@ -238,12 +278,12 @@ function handleClick(evt){
     var lineVals = getLineValsForCell(cell);
     if (!lineVals.includes(false)) {
       board[cell.row][cell.col] = player;
+      console.log(board);
       boxMade = true;
     }
   });
   switchPlayer();
   render();
-  boxMade = false;
 }
 
 function getLineValsForCell(cell) {
