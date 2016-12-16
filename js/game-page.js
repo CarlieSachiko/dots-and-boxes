@@ -1,5 +1,24 @@
-/*
-handle line click
+//PSEUDOCODE//
+/*DOTS & BOXES
+[Overall Game Play]
+1. Define the apps vars
+2. Register event listeners
+3. Initialize the apps state
+4. Render
+5. Handle players hovering over position
+  5a. Do nothing if position is full
+6. Handle Players clicking position
+  6a. Do nothing if position is full
+  6b. Make game play move
+    -Check if box is made
+       -if box made add score to player and let player move again until no more boxes are made
+    -Mark line for current player
+    -Render?
+    -Check if game is over (if win or lose)
+    -if not game over switch turns
+    -Render
+
+--handle line click--
   return if line is already clicked
   set line to cur player
   get (up to)two adjacent cells--> a fn that returns array [{row:_,col:_},{row:_,col:_}]
@@ -62,6 +81,9 @@ $eightBoard.on('click', () => setBoard(8));
 
 // BOARD CREATION //
 function setBoard(size) {
+  $board.show();
+  hArray=[];
+  vArray=[];
   $boardSizeOptions.hide();
   boardSize = size;
   createBoard(size);
@@ -139,8 +161,11 @@ function createBoardArrays(x) {
 function restart(){
   $board.hide();
   $boardSizeOptions.show();
-  $score1.html('');
-  $score2.html('');
+  board = [];
+  score1 = 0;
+  score2 = 0;
+  $score1.html(score1.toString());
+  $score2.html(score2.toString());
   initialize();
 }
 
@@ -233,7 +258,6 @@ function render(){
     lineColor(vArray, idx, $ln);
   });
   updateTurnMessage();
-  checkWinner();
 }
 
 function switchPlayer(){
@@ -247,7 +271,7 @@ function switchPlayer(){
 function checkWinner(){
   if (!hArray.includes(false) && !vArray.includes(false)){
     if(score1 > score2){
-      $table.fadeTo(500, 0.15);
+      // $table.fadeTo(500, 0.15);
       // $html.css({'background': 'http://i.imgur.com/SIaBwPB.jpg', 'background-size': 'cover'});
       $message.html('PLAYER ONE WINS!');
       $playAgain.html('Play again?');
@@ -257,6 +281,9 @@ function checkWinner(){
     } else if(score1===score2){
       $message.html(`It's a tie!`);
       $playAgain.html('Play again?');
+      console.log('aftering winning');
+      console.log(score1);
+      console.log(score2);
     } else return;
   }
 }
@@ -284,6 +311,7 @@ function handleClick(evt){
   });
   switchPlayer();
   render();
+  checkWinner();
 }
 
 function getLineValsForCell(cell) {

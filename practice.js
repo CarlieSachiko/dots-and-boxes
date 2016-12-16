@@ -50,6 +50,18 @@ function buildRowOne(row) {
   return s;
 }
 
+function buildLastRow(row){
+  var s = '<tr>';
+  for (var cellPair = ; cellPair < size; cellPair++) {
+    var tmp = `<td><div id="h${row * size + cellPair}" class="line h"></div></td>`;
+    s += dotTd;
+    s += tmp;
+  }
+  s += dotTd + '</tr>\n';
+  return s;
+
+}
+
 
 
 
