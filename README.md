@@ -11,25 +11,22 @@ Here is how the game works:
 
 ####Technologies Used
 For thie game I used:
-*HTML
-*CSS
-*Javascript
-*jQuery
+* HTML
+* CSS
+* Javascript
+* jQuery
 
 
 ####Installation Instructions
-To play this game please go to: [Dots&BoxesGame]
+To play this game please go to: [Dots&BoxesGame](https://carliesachiko.github.io/project-1/index.html)
 
 Enjoy!
-
-[Dots&BoxesGame](https://carliesachiko.github.io/project-1/index.html)
 
 
 
 ####Next Steps
 Here is a list of things I would like to do moving forward:
-*Let the player be able to choose their color
-*Update the visuals with better drawn videos
-*Update the win messaging with more creative visuals
-*Adjust the CSS to be more responsive to small screens
-*
+* Let the player be able to choose their color
+* Update the visuals with better drawn videos
+* Update the win messaging with more creative visuals
+* Adjust the CSS to be more responsive to small screens
