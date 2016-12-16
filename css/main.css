@@ -7,15 +7,6 @@ a:hover{
   cursor: pointer;
 }
 
-html {
-  background: url(../assets/pic2-2.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  /*border: solid() 2px red;*/
-}
-
 .container h1 {
     color: white;
 }
@@ -24,7 +15,6 @@ header {
   margin: auto;
   text-align: center;
   position: relative;
-  /*border: yellow solid 2px;*/
   width: 70%;
   padding-top: 50px;
   position: relative;
@@ -41,7 +31,6 @@ header {
   font-family:'Codystar', cursive;
   font-size: 9vw;
   letter-spacing: 15px;
-  /*border: solid 2px red;*/
   display: inline-block;
   text-align: center;
 }
@@ -51,14 +40,12 @@ header {
   font-size: 13vw;
   padding: 0;
   margin-top: 0;
-  /*border: solid 2px red;*/
   text-align: center;
 }
 
 #and {
   font-size: 3vw;
   letter-spacing: 3vw;
-  /*border: solid 2px red;*/
   display: inline-block;
   text-align: center;
 }
@@ -66,7 +53,6 @@ header {
 main{
   margin: 0 auto 100px;
   width: 40%;
-  /*border: solid 2px black;*/
   text-align: center;
   overflow: auto;
   padding-top: 0;
@@ -94,7 +80,6 @@ ul{
   letter-spacing: 1vw;
   text-align: center;
   margin: 20px 20px 40px 20px;
-  /*border: black solid 2px;*/
 }
 
 a {

@@ -14,7 +14,7 @@ div.bs:hover, a:hover {
 }
 
 html {
-  background: url('../assets/pic3-2.jpg') no-repeat center center fixed;
+  background: url('http://i.imgur.com/jMEuJo6.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -23,7 +23,6 @@ html {
 
 #board-size-options {
   width: 40%;
-  /*display: inline-block;*/
   font-family: 'Questrial', cursive;
   font-size: 3vw;
   text-align: center;
@@ -33,7 +32,6 @@ html {
 header {
   margin: auto;
   text-align: center;
-  /*border: black solid 2px;*/
   width: 40%;
   padding-top: 20px;
 }
@@ -60,13 +58,6 @@ header {
   display: inline-block;
 }
 
-/*img {
-  width: 250px;
-  float: left;
-  display: inline;
-  border: yellow 2px solid;
-}*/
-
 #turnMessage{
   font-size: 20px;
   letter-spacing: 5px;
@@ -81,8 +72,6 @@ header {
   padding: 15px 15px 30px;
   display: inline;
   float:left;
-  width: 100%;
-  /*border: black solid 3px;*/
 }
 
 #playAgain:hover {
@@ -93,23 +82,15 @@ header {
 #table {
   margin: auto;
   padding: 15px;
- /* position: fixed;
-  top: 50%;
-  left: 50%;
-  margin-top: -75px;
-  margin-left: -150px;*/
-  /*border: black solid 2px;*/
 }
 
 td {
   padding: 0;
   text-align: center;
   font-family: none;
-  /*border: 2px solid red;*/
 }
 
 div.box {
-  /*border: black solid 1px;*/
   width: 50px;
   height: 50px;
   padding: 0;
@@ -134,11 +115,9 @@ div.player {
   font-size: 3.5vw;
   text-align: center;
   margin: 10px;
-  border: yellow solid 2px;
 }
 
 #p1, #s1 {
-  /*float: left;*/
   color: #F60303;
 }
 
@@ -147,7 +126,6 @@ div.player {
 }
 
 #p2, #s2 {
-  /*float: right;*/
   color: #042AFF;
 }
 
@@ -155,7 +133,6 @@ div .line {
   background-color: transparent;
   padding: 0;
   margin: auto;
-  /*border: 2px solid orange;*/
 }
 
 div .line:hover{
@@ -202,6 +179,13 @@ p{
   color: #7300F6;
 }
 
+/*ABOUT PAGE CSS*/
+img.aboutPic {
+  width: 200px;
+  height: 200px;
+  object-fit:cover;
+  border-radius: 50%;
+}
 
 /*RESPONSIVE CSS*/
 @media screen and (max-width: 800px){
@@ -230,17 +214,6 @@ p{
   #board-size-options, div.player {
     font-size: 24px;
   }
-
-/*  #table {
-    margin: auto;
-    padding: 15px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-top: -50px;
-    margin-left: -150px;
-  }*/
-
 }
 
 @media screen and (min-width: 800px){

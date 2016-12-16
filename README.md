@@ -1,5 +1,5 @@
 #DOTS AND BOXES
-##Created By Carlie Clippinger
+###Created By Carlie Clippinger
 
 ####About Dots and Boxes
 Dots and Boxes is a classic board game, usually played with pen and paper.  
@@ -18,7 +18,7 @@ For thie game I used:
 
 
 ####Installation Instructions
-To play this game please go to: [Dots&BoxesGame](https://carliesachiko.github.io/project-1/index.html)
+To play this game click here! [Dots & Boxes Game](https://carliesachiko.github.io/project-1/index.html)
 
 Enjoy!
 
@@ -27,6 +27,6 @@ Enjoy!
 ####Next Steps
 Here is a list of things I would like to do moving forward:
 * Let the player be able to choose their color
-* Update the visuals with better drawn videos
+* Update the visuals with better drawn videos or images
 * Update the win messaging with more creative visuals
 * Adjust the CSS to be more responsive to small screens

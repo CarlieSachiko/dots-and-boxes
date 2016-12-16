@@ -9,13 +9,12 @@ var $html = $('html');
 //FUNCTIONS//
 $(function () {
     var backgrounds = [
-      'url(http://i.imgur.com/2AKSUaT.jpg) no-repeat center center fixed',
-      'url(http://i.imgur.com/jMEuJo6.jpg) no-repeat center center fixed',
-      'url(http://i.imgur.com/gsDnbu2.jpg) no-repeat center center fixed',
-      'url(http://i.imgur.com/VHdQHzT.jpg) no-repeat center center fixed',
-      'url(http://i.imgur.com/SIaBwPB.jpg) no-repeat center center fixed',
-      'url(http://i.imgur.com/dIzGVh9.jpg) no-repeat center center fixed',
-      'url(http://i.imgur.com/SZo3BOK.jpg) no-repeat center center fixed'
+      'url(http://i.imgur.com/OtxkMsF.jpg) no-repeat center center fixed',
+      'url(http://i.imgur.com/gRbWvzv.jpg) no-repeat center center fixed',
+      'url(http://i.imgur.com/qzzoXGa.jpg) no-repeat center center fixed',
+      'url(http://i.imgur.com/nAbAxoY.jpg) no-repeat center center fixed',
+      'url(http://i.imgur.com/Gu1JKo9.jpg) no-repeat center center fixed',
+      'url(http://i.imgur.com/ZwhdNQi.jpg) no-repeat center center fixed'
       ];
     var current = 0;
 

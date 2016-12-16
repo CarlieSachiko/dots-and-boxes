@@ -34,13 +34,12 @@
 ////////////////
 
 // VARIABLES //
-var player, boxMade, score1, score2, boardSize, html;
+var player, boxMade, score1, score2, boardSize, html, $line;
 var p1Color = "#F60303";
 var p2Color = "#042AFF";
 var board = [];
 var hArray = [];
 var vArray = [];
-var $line;
 var $message = $('#message');
 var $playAgain = $('#playAgain');
 var $score1 = $('div#s1');
@@ -313,7 +312,6 @@ function handleClick(evt){
 }
 
 function getLineValsForCell(cell) {
-  // var {row, col} = cell; ES2015 for the below two lines
   var row = cell.row;
   var col = cell.col;
   var t = row * board[row].length + col;
