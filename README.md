@@ -19,7 +19,7 @@ For this game I used:
 ###Installation Instructions
 Follow the link below to play!
 
-[Dots & Boxes Game](https://carliesachiko.github.io/project-1/index.html)
+[Dots & Boxes Game](https://carliesachiko.github.io/dots-and-boxes/index.html)
 
 --------
 ###Next Steps
