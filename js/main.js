@@ -11,10 +11,7 @@ $(function () {
     var backgrounds = [
       'url(http://i.imgur.com/OtxkMsF.jpg) no-repeat center center fixed',
       'url(http://i.imgur.com/gRbWvzv.jpg) no-repeat center center fixed',
-      'url(http://i.imgur.com/qzzoXGa.jpg) no-repeat center center fixed',
-      'url(http://i.imgur.com/nAbAxoY.jpg) no-repeat center center fixed',
-      'url(http://i.imgur.com/Gu1JKo9.jpg) no-repeat center center fixed',
-      'url(http://i.imgur.com/ZwhdNQi.jpg) no-repeat center center fixed'
+      'url(http://i.imgur.com/fXfnL69.jpg) no-repeat center center fixed'
       ];
     var current = 0;
 
