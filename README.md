@@ -6,6 +6,9 @@ Dots and Boxes is a classic 2 player game, usually played with pen and paper.
 
 Here is how the game works:  
 You begin with an empty grid of dots. The object of the game is to create as many boxes as possible. Each player takes their turn to "draw" their line on the grid. Once that line is placed it cannot be changed or overwritten. If the line you place creates a box, you win that box and you get another turn! But remember to think ahead and prevent your opponent from winning their own boxes! 
+
+For wireframes and user stories check out the [Trello board](https://trello.com/b/3XixmTaU/wdi-dots-boxes).
+
 ![alt](http://i.imgur.com/YLsAMdS.png)
 
 --------
