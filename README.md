@@ -1,5 +1,5 @@
 #DOTS AND BOXES
-###Created By Carlie Clippinger
+####Created By Carlie Clippinger
 --------
 ###About Dots and Boxes
 Dots and Boxes is a classic 2 player game, usually played with pen and paper.  
