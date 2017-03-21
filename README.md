@@ -1,7 +1,8 @@
-#DOTS AND BOXES
-####Created By Carlie Clippinger
+DOTS AND BOXES
+Created By Carlie Clippinger
 --------
-###About Dots and Boxes
+About Dots and Boxes
+
 Dots and Boxes is a classic 2 player game, usually played with pen and paper.  
 
 Here is how the game works:  
@@ -12,7 +13,7 @@ For wireframes and user stories check out the [Trello board](https://trello.com/
 ![alt](http://i.imgur.com/YLsAMdS.png)
 
 --------
-###Technologies Used
+Technologies Used
 For this game I used:
 * HTML
 * CSS
@@ -20,13 +21,13 @@ For this game I used:
 * jQuery
 
 --------
-###Installation Instructions
+Installation Instructions
 Follow the link below to play!
 
 [Dots & Boxes Game](https://carliesachiko.github.io/dots-and-boxes/index.html)
 
 --------
-###Next Steps
+Next Steps
 Here is a list of things I would like to do moving forward:
 * Let the player be able to choose their color
 * Update the visuals with better drawn videos or images
