@@ -1,4 +1,5 @@
-DOTS AND BOXES
+#DOTS AND BOXES
+
 Created By Carlie Clippinger
 --------
 About Dots and Boxes
@@ -14,6 +15,7 @@ For wireframes and user stories check out the [Trello board](https://trello.com/
 
 --------
 Technologies Used
+
 For this game I used:
 * HTML
 * CSS
@@ -22,12 +24,14 @@ For this game I used:
 
 --------
 Installation Instructions
+
 Follow the link below to play!
 
 [Dots & Boxes Game](https://carliesachiko.github.io/dots-and-boxes/index.html)
 
 --------
 Next Steps
+
 Here is a list of things I would like to do moving forward:
 * Let the player be able to choose their color
 * Update the visuals with better drawn videos or images
