@@ -1,6 +1,6 @@
-#DOTS AND BOXES
+# DOTS AND BOXES
 
-Created By Carlie Clippinger
+#### Created By Carlie Clippinger
 --------
 About Dots and Boxes
 
